@@ -50,7 +50,13 @@ export default class PokeCard extends Component {
 								: "white"
 						}}
 						className="front">
-						<h1>{this.props.name}</h1>
+						<h1>
+							{this.props.name
+								? this.props.name.includes("-")
+									? this.props.name.split("-")[0]
+									: this.props.name
+								: ""}
+						</h1>
 						<div className="image-container">
 							{cardEffects ? (
 								<video
