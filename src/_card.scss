@@ -1,0 +1,142 @@
+/* entire container, keeps perspective */
+.flip-container {
+	perspective: 1000px;
+	cursor: pointer;
+}
+/* flip the pane when hovered */
+.flip-container:hover .flipper,
+.flip-container.hover .flipper {
+	transform: rotateY(180deg);
+}
+
+.flip-container,
+.front,
+.back {
+	width: 320px;
+	height: 445px;
+}
+
+/* flip speed goes here */
+.flipper {
+	transition: 0.6s;
+	transform-style: preserve-3d;
+
+	position: relative;
+}
+
+/* hide back of pane during swap */
+.front,
+.back {
+	backface-visibility: hidden;
+
+	position: absolute;
+	top: 0;
+	left: 0;
+}
+
+/* front pane, placed above back */
+.front {
+	z-index: 2;
+	/* for firefox 31 */
+	transform: rotateY(0deg);
+	background: rgb(141, 17, 38);
+	display: flex;
+	padding: 10px;
+	align-items: center;
+	flex-direction: column;
+	border: 10px solid rgb(202, 202, 0);
+	border-radius: 8px;
+
+	> h1 {
+		display: flex;
+	}
+
+	> .image-container {
+		width: 100%;
+		display: flex;
+		justify-content: center;
+		align-items: center;
+		overflow: hidden;
+		height: 200px;
+		background: rgb(165, 198, 101);
+		border: 5px solid #dabe40;
+		position: relative;
+		video {
+			position: absolute;
+			height: 100%;
+			width: auto;
+			top: 0;
+			left: 0;
+		}
+
+		img {
+			width: 100px;
+			position: relative;
+			z-index: 3;
+		}
+	}
+
+	.attack-container {
+		width: 100%;
+		display: flex;
+		justify-content: space-around;
+		align-items: center;
+		height: 100px;
+
+		> div > div {
+			display: flex;
+			justify-content: center;
+			align-items: center;
+			flex-direction: row;
+			flex: 1;
+		}
+
+		.attack-cost {
+			max-width: 90px;
+			width: 100%;
+
+			> div {
+				display: flex;
+				justify-content: center;
+				align-items: center;
+				flex-wrap: wrap;
+			}
+
+			img {
+				width: 30px;
+			}
+		}
+
+		.attack-name {
+			font-size: 10px;
+			> div:nth-child(1) {
+				padding-bottom: 5px;
+				border-bottom: solid 2px black;
+			}
+
+			span {
+				font-weight: 800;
+				align-self: flex-start;
+				font-size: 12px;
+			}
+		}
+		.attack-damage {
+			max-width: 40px;
+			width: 100%;
+			display: flex;
+			flex-direction: column;
+			justify-content: space-around;
+
+			height: 100%;
+		}
+	}
+}
+
+/* back, initially hidden pane */
+.back {
+	transform: rotateY(180deg);
+	background: url("./media/cardback.png");
+	background-position: center center;
+	background-repeat: no-repeat;
+	background-size: contain;
+}
