@@ -18,10 +18,10 @@ export default class DataFetcher extends Component {
 	async fetchData(search) {
 		const pokemon = search.match(/[0-9]/)
 			? await axios.get(
-					`https://api.pokemontcg.io/v1/cards?setCode=base1&nationalPokedexNumber=${search}`
+					`https://api.pokemontcg.io/v1/cards?nationalPokedexNumber=${search}`
 			  )
 			: await axios.get(
-					`https://api.pokemontcg.io/v1/cards?setCode=base1&name=${search}`
+					`https://api.pokemontcg.io/v1/cards?name=${search}`
 			  );
 		console.log(pokemon);
 		this.setState({

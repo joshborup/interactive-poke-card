@@ -6,7 +6,6 @@ import smokebg from "../media/Smoke - 9553.mp4";
 import waterbg from "../media/Water - 756.mp4";
 import cavebg from "../media/Cave - 12634.mp4";
 import thunderstorm from "../media/Thunderstorm - 3127.mp4";
-import notfound from "../media/pikachu-female.gif";
 
 const typeKey = [
 	{ type: "Lightning", color: "yellow", videobg: thunderstorm },
@@ -24,9 +23,12 @@ const typeKey = [
 
 export default class PokeCard extends Component {
 	render() {
-		console.log(this.props.types);
 		let baseUrl = this.props.name
-			? `http://www.pokestadium.com/sprites/xy/${this.props.name.toLowerCase()}.gif`
+			? `http://www.pokestadium.com/sprites/xy/${
+					this.props.name.includes("-")
+						? this.props.name.toLowerCase().split("-")[0]
+						: this.props.name.toLowerCase().split(" ")[0]
+			  }.gif`
 			: "";
 		let cardEffects = this.props.types
 			? typeKey.filter((type) => {
@@ -38,7 +40,6 @@ export default class PokeCard extends Component {
 					}
 			  })[0]
 			: null;
-		console.log(cardEffects ? cardEffects.videobg : "");
 		return (
 			<div className="flip-container">
 				<div className="flipper">
