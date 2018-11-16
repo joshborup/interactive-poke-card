@@ -46,8 +46,25 @@
 	flex-direction: column;
 	border: 10px solid rgb(202, 202, 0);
 	border-radius: 8px;
+	font-family: "Lato", sans-serif;
+	.name-hp {
+		display: flex;
+		justify-content: space-between;
+		align-items: center;
+		width: 100%;
+
+		h1:nth-child(1) {
+			font-weight: 700;
+		}
+
+		h1:nth-child(2) {
+			color: red;
+			font-weight: 900;
+		}
+	}
 
 	> h1 {
+		font-weight: 700;
 		display: flex;
 	}
 
@@ -92,42 +109,64 @@
 		}
 
 		.attack-cost {
-			max-width: 90px;
 			width: 100%;
 
 			> div {
+				display: flex;
+				justify-content: space-around;
+				align-items: center;
+				border-bottom: solid 1px black;
+				font-size: 12px;
+				padding: 2px 0;
+			}
+
+			.cost-img {
+				max-width: 95px;
+				width: 100%;
 				display: flex;
 				justify-content: center;
 				align-items: center;
 				flex-wrap: wrap;
 			}
 
-			img {
-				width: 30px;
-			}
-		}
-
-		.attack-name {
-			font-size: 10px;
-			> div:nth-child(1) {
-				padding-bottom: 5px;
-				border-bottom: solid 2px black;
+			.atk-desc {
+				display: flex;
+				min-width: 140px;
 			}
 
 			span {
 				font-weight: 800;
 				align-self: flex-start;
-				font-size: 12px;
+				font-size: 13px;
+				margin: 0 2px;
+			}
+
+			img {
+				width: 30px;
 			}
 		}
-		.attack-damage {
-			max-width: 40px;
-			width: 100%;
-			display: flex;
-			flex-direction: column;
-			justify-content: space-around;
+	}
 
-			height: 100%;
+	.weakness-retreat-container {
+		display: flex;
+		flex-direction: column;
+		justify-content: space-around;
+		width: 100%;
+		position: absolute;
+		bottom: 20px;
+		> div {
+			display: flex;
+			width: 100%;
+			justify-content: space-around;
+			align-items: center;
+			> div:nth-child(2) {
+				display: flex;
+				flex-wrap: wrap;
+				> img {
+					height: 30px;
+					width: 30px;
+				}
+			}
 		}
 	}
 }

@@ -20,6 +20,10 @@ class App extends Component {
 							return (
 								<div>
 									<PokeCard {...pokemon.data} />
+
+									<span className="instructions">
+										Enter a Pokemon name or PokeDex id
+									</span>
 									<input
 										onKeyPress={(e) => {
 											if (e.key === "Enter") {

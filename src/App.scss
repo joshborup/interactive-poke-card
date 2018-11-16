@@ -1,14 +1,14 @@
+@import url("https://fonts.googleapis.com/css?family=Lato:400,700,900");
 @import "./card";
-
 .App {
 	min-width: 100vw;
 	min-height: 100vh;
 	background: rgb(230, 230, 230);
+	font-family: "Lato", sans-serif;
 
 	input,
 	button {
 		font-size: 18px;
-
 		background: white;
 		height: 40px;
 		box-shadow: 1px 3px 5px rgba(0, 0, 0, 0.26);
@@ -21,6 +21,12 @@
 		width: 300px;
 		margin: 10px;
 		outline: none;
+	}
+
+	.instructions {
+		margin: 7px 0 0px;
+		font-weight: 600;
+		letter-spacing: 0.7px;
 	}
 
 	button {
