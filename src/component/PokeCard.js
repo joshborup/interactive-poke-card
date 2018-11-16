@@ -27,7 +27,6 @@ const typeKey = [
 
 export default class PokeCard extends Component {
 	render() {
-		console.log(this.props);
 		let baseUrl = this.props.name
 			? `http://www.pokestadium.com/sprites/xy/${
 					this.props.name.includes("-")
@@ -141,7 +140,8 @@ export default class PokeCard extends Component {
 							</div>
 							<div>
 								<div>
-									{this.props.weaknesses
+									{this.props.weaknesses &&
+									this.props.weaknesses.length
 										? this.props.weaknesses.map(
 												(weakness) => {
 													return (
@@ -154,7 +154,8 @@ export default class PokeCard extends Component {
 										: null}
 								</div>
 								<div>
-									{this.props.weaknesses
+									{this.props.retreatCost &&
+									this.props.retreatCost.length
 										? this.props.retreatCost.map((cost) => {
 												return <img src={colorless} />;
 										  })

@@ -23,7 +23,6 @@ export default class DataFetcher extends Component {
 			: await axios.get(
 					`https://api.pokemontcg.io/v1/cards?name=${search}`
 			  );
-		console.log(pokemon);
 		this.setState({
 			data: { ...pokemon.data.cards[0] }
 		});

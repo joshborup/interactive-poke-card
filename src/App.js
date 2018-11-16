@@ -16,7 +16,6 @@ class App extends Component {
 				<div>
 					<DataFetcher
 						render={(pokemon) => {
-							console.log(pokemon);
 							return (
 								<div>
 									<PokeCard {...pokemon.data} />
