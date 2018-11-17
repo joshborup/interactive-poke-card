@@ -12,8 +12,8 @@
 .flip-container,
 .front,
 .back {
-	width: 320px;
-	height: 445px;
+	width: 330px;
+	height: 460px;
 }
 
 /* flip speed goes here */
@@ -63,6 +63,14 @@
 		}
 	}
 
+	.icon {
+		height: 30px;
+		width: 30px;
+		> img {
+			width: 100%;
+		}
+	}
+
 	> h1 {
 		font-weight: 700;
 		display: flex;
@@ -98,7 +106,6 @@
 		display: flex;
 		justify-content: space-around;
 		align-items: center;
-		height: 100px;
 
 		> div > div {
 			display: flex;
@@ -116,7 +123,7 @@
 				justify-content: space-around;
 				align-items: center;
 				border-bottom: solid 1px black;
-				font-size: 12px;
+				font-size: 11px;
 				padding: 2px 0;
 			}
 
@@ -137,7 +144,7 @@
 			span {
 				font-weight: 800;
 				align-self: flex-start;
-				font-size: 13px;
+				font-size: 12px;
 				margin: 0 2px;
 			}
 

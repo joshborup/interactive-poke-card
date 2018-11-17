@@ -10,19 +10,75 @@ import dragonbg from "../media/Dragon.mp4";
 import fairybg from "../media/Fairy.mp4";
 import metalbg from "../media/Metal.mp4";
 import thunderstorm from "../media/Thunderstorm - 3127.mp4";
+import waterIcon from "../media/water.png";
+import lightIcon from "../media/lightning.png";
+import grassIcon from "../media/grass.png";
+import fightingIcon from "../media/fighting.png";
+import darknessIcon from "../media/darkness.png";
+import fairyIcon from "../media/fairy.png";
+import fireIcon from "../media/fire.png";
+import metalIcon from "../media/metal.png";
+import psychicIcon from "../media/psychic.png";
+import dragonIcon from "../media/dragon.png";
+import Icon from "./Icon";
 
 const typeKey = [
-	{ type: "Lightning", color: "yellow", videobg: thunderstorm },
-	{ type: "Colorless", color: "rgb(230,230,230)", videobg: smokebg },
-	{ type: "Darkness", color: "rgb(60,60,60)", videobg: smokebg },
-	{ type: "Grass", color: "rgb(202, 224, 164)", videobg: grassbg },
-	{ type: "Dragon", color: "rgb(214, 221, 236)", videobg: dragonbg },
-	{ type: "Fairy", color: "pink", videobg: fairybg },
-	{ type: "Fighting", color: "rgb(205, 169, 123)", videobg: cavebg },
-	{ type: "Fire", color: "rgb(233, 157, 139)", videobg: firebg },
-	{ type: "Metal", color: "silver", videobg: metalbg },
-	{ type: "Psychic", color: "rgb(191, 152, 206)", videobg: ghostbg },
-	{ type: "Water", color: "rgb(142, 199, 241)", videobg: waterbg }
+	{
+		type: "Lightning",
+		color: "yellow",
+		videobg: thunderstorm,
+		icon: lightIcon
+	},
+	{
+		type: "Colorless",
+		color: "rgb(230,230,230)",
+		videobg: smokebg,
+		icon: colorless
+	},
+	{
+		type: "Darkness",
+		color: "rgb(60,60,60)",
+		videobg: smokebg,
+		icon: darknessIcon
+	},
+	{
+		type: "Grass",
+		color: "rgb(202, 224, 164)",
+		videobg: grassbg,
+		icon: grassIcon
+	},
+	{
+		type: "Dragon",
+		color: "rgb(214, 221, 236)",
+		videobg: dragonbg,
+		icon: dragonIcon
+	},
+	{ type: "Fairy", color: "pink", videobg: fairybg, icon: fairyIcon },
+	{
+		type: "Fighting",
+		color: "rgb(205, 169, 123)",
+		videobg: cavebg,
+		icon: fightingIcon
+	},
+	{
+		type: "Fire",
+		color: "rgb(233, 157, 139)",
+		videobg: firebg,
+		icon: fireIcon
+	},
+	{ type: "Metal", color: "silver", videobg: metalbg, icon: metalIcon },
+	{
+		type: "Psychic",
+		color: "rgb(191, 152, 206)",
+		videobg: ghostbg,
+		icon: psychicIcon
+	},
+	{
+		type: "Water",
+		color: "rgb(142, 199, 241)",
+		videobg: waterbg,
+		icon: waterIcon
+	}
 ];
 
 export default class PokeCard extends Component {
@@ -101,9 +157,12 @@ export default class PokeCard extends Component {
 														{attack.cost.map(
 															(cost) => {
 																return (
-																	<img
-																		src={
-																			colorless
+																	<Icon
+																		actualType={
+																			cost
+																		}
+																		typeKey={
+																			typeKey
 																		}
 																	/>
 																);
@@ -146,7 +205,14 @@ export default class PokeCard extends Component {
 												(weakness) => {
 													return (
 														<span>
-															{weakness.type}
+															<Icon
+																actualType={
+																	weakness.type
+																}
+																typeKey={
+																	typeKey
+																}
+															/>
 														</span>
 													);
 												}
