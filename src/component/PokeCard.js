@@ -1,8 +1,8 @@
 import React, { Component } from "react";
 import colorless from "../media/colorless.png";
 import firebg from "../media/Fire - 12910.mp4";
-import grassbg from "../media/Grass - 13781.mp4";
-import ghostbg from "../media/Ghost.mp4";
+import grassbg from "../media/Grass.mp4";
+import ghostbg from "../media/Darkness - 2106.mp4";
 import smokebg from "../media/Smoke.mp4";
 import waterbg from "../media/Water - 756.mp4";
 import cavebg from "../media/Cave - 12634.mp4";
@@ -100,6 +100,7 @@ export default class PokeCard extends Component {
 					}
 			  })[0]
 			: null;
+		console.log(this.props.name);
 		return (
 			<div className="flip-container">
 				<div className="flipper">
@@ -112,11 +113,27 @@ export default class PokeCard extends Component {
 						className="front">
 						<div className="name-hp">
 							<h1>
-								{this.props.name
-									? this.props.name.includes("-")
-										? this.props.name.split("-")[0]
-										: this.props.name
-									: ""}
+								{this.props.name ? (
+									this.props.name.includes("-") ? (
+										<span>
+											{this.props.name.split("-")[0]} (
+											{this.props.types
+												? this.props.types[0]
+												: null}
+											)
+										</span>
+									) : (
+										<span>
+											{this.props.name} (
+											{this.props.types
+												? this.props.types[0]
+												: null}
+											)
+										</span>
+									)
+								) : (
+									""
+								)}
 							</h1>
 							<h1 className="hp">{this.props.hp} HP</h1>
 						</div>
